@@ -384,29 +384,89 @@ function populateTabs(data) {
                     <div class="spell-details"><strong>Range:</strong> ${item.range}</div>
                     <div class="spell-details"><strong>Duration:</strong> ${item.duration}</div>
                 `;
-            } else {
-                cardBack.innerText = item.details;
-            }
-            
-            cardInner.appendChild(cardFront);
-            cardInner.appendChild(cardBack);
-            card.appendChild(cardInner);
-            container.appendChild(card);
-        });
-        
-        tab.appendChild(container);
+      } else if (category === "Automatons") {
+        cardBack.innerHTML = `
+    <div class="automaton-details">
+      <strong>Name:</strong> ${item.name}
+    </div>
+    
+    <div class="automaton-details">
+      <strong>Type:</strong> ${item.type}
+    </div>
+    
+    <div class="automaton-details">
+      <strong>Rarity:</strong> ${item.rarity}
+    </div>
+    
+    <div class="automaton-details">
+      <strong>Description:</strong> ${item.description}
+    </div>
+    
+    <div class="automaton-details">
+      <strong>Base Components:</strong><br>${item.base_components.join("<br>")}
+    </div>
+    
+    <div class="automaton-details">
+      <strong>Base Abilities:</strong><br>${item.base_abilities.join("<br>")}
+    </div>
+    
+    <div class="automaton-details">
+      <strong>Available Modules:</strong><br>${item.available_modules
+        .map(
+          (module) => `
+        <div>
+          <strong>${module.name}</strong><br>
+          
+          <strong>Description:</strong> ${module.description}<br>
+          
+          <strong>Effect:</strong> ${module.effect}<br>
+          
+          <strong>Usage:</strong> ${module.usage}<br>
+          
+          <strong>Materials:</strong> ${module.materials.join(", ")}
+        </div>
+      `
+        )
+        .join("")}
+    </div>
+    
+    <div class="automaton-details">
+      <strong>Restrictions:</strong><br>${item.restrictions.join("<br>")}
+    </div>
+    
+    <div class="automaton-details">
+      <strong>Warnings:</strong><br>${item.warnings.join("<br>")}
+    </div>
+    
+    <div class="automaton-details">
+      <strong>Usage Instructions:</strong><br>${item.usage_instructions.join(
+        "<br>"
+      )}
+    </div>
+  `;
+      } else {
+        cardBack.innerText = item.details;
+      }
+
+      cardInner.appendChild(cardFront);
+      cardInner.appendChild(cardBack);
+      card.appendChild(cardInner);
+      container.appendChild(card);
     });
+
+    tab.appendChild(container);
+  });
 }
 
 function openTab(event, categoryName) {
-    const tabContents = document.querySelectorAll('.tabcontent');
-    tabContents.forEach(tab => {
-        tab.style.display = 'none';
-    });
-    document.getElementById(categoryName).style.display = 'block';
-    const tabLinks = document.querySelectorAll('.tablink');
-    tabLinks.forEach(tabLink => {
-        tabLink.classList.remove('active');
-    });
-    event.currentTarget.classList.add('active');
+  const tabContents = document.querySelectorAll(".tabcontent");
+  tabContents.forEach((tab) => {
+    tab.style.display = "none";
+  });
+  document.getElementById(categoryName).style.display = "block";
+  const tabLinks = document.querySelectorAll(".tablink");
+  tabLinks.forEach((tabLink) => {
+    tabLink.classList.remove("active");
+  });
+  event.currentTarget.classList.add("active");
 }

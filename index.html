@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTRPG Equipment Catalogue</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tabs">
+        <button class="tablink" onclick="openTab(event, 'Weapons')">Weapons</button>
+        <button class="tablink" onclick="openTab(event, 'Armor')">Armor</button>
+        <button class="tablink" onclick="openTab(event, 'Consumables')">Consumables</button>
+        <button class="tablink" onclick="openTab(event, 'Potions')">Potions</button>
+        <button class="tablink" onclick="openTab(event, 'Miscellaneous')">Miscellaneous</button>
+        <button class="tablink" onclick="openTab(event, 'Spells')">Spells</button>
+        <button class="tablink" onclick="openTab(event, 'Automatons')">Automatons</button>
+    </div>
+
+    <div id="Weapons" class="tabcontent"></div>
+    <div id="Armor" class="tabcontent"></div>
+    <div id="Consumables" class="tabcontent"></div>
+    <div id="Potions" class="tabcontent"></div>
+    <div id="Miscellaneous" class="tabcontent"></div>
+    <div id="Spells" class="tabcontent"></div>
+    <div id="Automatons" class="tabcontent"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

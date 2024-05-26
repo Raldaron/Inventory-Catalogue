@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tabs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #f1f1f1;
+    overflow-x: auto;
+}
+
+.tabs button {
+    background-color: inherit;
+    flex: 1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.tabs button:hover {
+    background-color: #ddd;
+}
+
+.tabs button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    width: 100%;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 300px;
+    height: 200px;
+    margin: 10px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: all 0.8s ease;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s, height 0.8s ease;
+    transform-style: preserve-3d;
+}
+
+.card.flipped {
+    width: 90%;
+    max-width: 300px;
+    z-index: 10;
+    height: auto;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+    height: auto;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card-front {
+    background-color: #bbb;
+}
+
+.card-back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    text-align: left;
+    overflow-y: auto;
+    height: auto;
+}
+
+.card-back .spell-details, .card-back .automaton-details {
+    margin: 10px 0;
+}
